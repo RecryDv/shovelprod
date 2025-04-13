@@ -19,10 +19,30 @@ local util2 = {
 return {
 	CreateWindow = function(pass, data)
 		if pass == 1337 then
-			local util
-			pcall(function()
-				util = loadstring(game:HttpGet("https://raw.githubusercontent.com/RecryDv/shovelprod/refs/heads/main/blur.lua"))()
-			end)
+			local util = {
+				ButtonFx = function(button)
+					if button:IsA("GuiButton") and button:FindFirstChildOfClass("UIScale") then
+						local button: GuiButton = button
+						local scale = button:FindFirstChildOfClass("UIScale")
+						local thook = TweenInfo.new(0.025, Enum.EasingStyle.Cubic, Enum.EasingDirection.InOut)
+						button.MouseEnter:Connect(function()
+							TweenService:Create(scale, thook, {Scale = 1.05}):Play()
+						end)
+
+						button.MouseLeave:Connect(function()
+							TweenService:Create(scale, thook, {Scale = 1}):Play()
+						end)
+
+						button.MouseButton1Down:Connect(function()
+							TweenService:Create(scale, thook, {Scale = 0.9}):Play()
+						end)
+
+						button.MouseButton1Up:Connect(function()
+							TweenService:Create(scale, thook, {Scale = 1}):Play()
+						end)
+					end
+				end,
+			}
 			local ui = {}
 			task.wait(1.5)
 
