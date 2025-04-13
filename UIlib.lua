@@ -6,7 +6,7 @@ local blur = loadstring(game:HttpGet("https://raw.githubusercontent.com/RecryDv/
 local util2 = {
 	blur_inc = function(fr)
 		if blur ~= nil then
-			blur:BlurFrame(fr, {
+			blur:BindFrame(fr, {
 				Transparency = 0.99;
 				BrickColor = BrickColor.new(Color3.new(1,1,1));
 			})
