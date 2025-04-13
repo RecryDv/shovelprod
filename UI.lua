@@ -19,8 +19,11 @@ local util2 = {
 return {
 	CreateWindow = function(pass, data)
 		if pass == 1337 then
-			
-			local util = require(script.util)
+			local util
+			pcall(function()
+				util = loadstring(game:HttpGet("https://raw.githubusercontent.com/RecryDv/shovelprod/refs/heads/main/blur.lua"))()
+			end)
+			util = util or require(script.util)
 			local ui = {}
 			task.wait(1.5)
 
@@ -35,6 +38,10 @@ return {
 			Frame.BorderSizePixel = 0
 			Frame.Position = UDim2.new(0.5,0,0.5,0)
 			Frame.Size = UDim2.new(0,544,0,400)
+			
+			local drag = Instance.new("UIDragDetector")
+			drag.Parent = Frame
+			drag.CursorIcon = ""
 
 			local TitleLabel = Instance.new("TextLabel", Frame)
 			TitleLabel.Name = "TitleLabel"
@@ -89,6 +96,7 @@ return {
 			Tabs.CanvasSize = UDim2.new(0,0,1.25,0)
 			Tabs.ScrollBarImageColor3 = Color3.new(0, 0, 0)
 			Tabs.ScrollBarImageTransparency = 1
+			Tabs.ZIndex = 45
 			Tabs.AutomaticCanvasSize = Enum.AutomaticSize.Y
 
 			local UIListLayout = Instance.new("UIListLayout", Tabs)
