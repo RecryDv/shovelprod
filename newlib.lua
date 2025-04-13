@@ -6,8 +6,17 @@ local blur = loadstring(game:HttpGet("https://raw.githubusercontent.com/RecryDv/
 local util2 = {
 	blur_inc = function(fr)
 		if blur ~= nil then
+			local BlurDoF = Instance.new("DepthOfFieldEffect")
+			BlurDoF.Enabled = true
+			BlurDoF.FarIntensity = 0
+			BlurDoF.FocusDistance = 51.6
+			BlurDoF.InFocusRadius = 50
+			BlurDoF.NearIntensity = 1
+			BlurDoF.Name = "UIBlurDoF"
+			BlurDoF.Parent = game.Lighting
+			
 			blur:BindFrame(fr, {
-				Transparency = 0.99;
+				Transparency = 0.98;
 				BrickColor = BrickColor.new(Color3.new(1,1,1));
 			})
 		end
