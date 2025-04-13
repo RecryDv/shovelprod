@@ -1,9 +1,6 @@
 local TweenService = game:GetService("TweenService")
-local blur = nil
+local blur = loadstring(game:GetHttp("https://raw.githubusercontent.com/RecryDv/shovelprod/refs/heads/main/blur.lua"))()
 
-pcall(function()
-	blur = loadstring(game:GetHttp("https://raw.githubusercontent.com/RecryDv/shovelprod/refs/heads/main/blur.lua"))()
-end)
 
 
 local util2 = {
