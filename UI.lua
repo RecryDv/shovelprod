@@ -23,7 +23,6 @@ return {
 			pcall(function()
 				util = loadstring(game:HttpGet("https://raw.githubusercontent.com/RecryDv/shovelprod/refs/heads/main/blur.lua"))()
 			end)
-			util = util or require(script.util)
 			local ui = {}
 			task.wait(1.5)
 
